@@ -3,7 +3,7 @@ package com.backend1.api_calls.models;
 import lombok.Data;
 
 @Data
-public class AllserviceDetails {
+public class UtilityDetails {
 
     private Integer id;
 

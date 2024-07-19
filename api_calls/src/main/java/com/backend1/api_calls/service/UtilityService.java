@@ -7,26 +7,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.backend1.api_calls.entity.Allservice;
-import com.backend1.api_calls.models.AllserviceDetails;
+import com.backend1.api_calls.models.UtilityDetails;
 import com.backend1.api_calls.repository.AllservicesRepository;
 
 @Service
-public class AllserviceService {
+public class UtilityService{
 
     @Autowired
     private AllservicesRepository AllservicesRepository;
     
-    public List<AllserviceDetails> getAllServices() {
+    public List<UtilityDetails> getUtilities() {
 
         List<Allservice> allServices = AllservicesRepository.findAll();
-        List<AllserviceDetails> allservicesDetailsList = new ArrayList<>();
+        List<UtilityDetails> allservicesDetailsList = new ArrayList<>();
 
         allServices.forEach(item -> allservicesDetailsList.add(convertAllServicesToAllServicesDetails(item)));
         return allservicesDetailsList;
     }
-    private AllserviceDetails convertAllServicesToAllServicesDetails(Allservice allservice) {
 
-        AllserviceDetails allservicesDetails = new AllserviceDetails();
+    
+    private UtilityDetails convertAllServicesToAllServicesDetails(Allservice allservice) {
+
+        UtilityDetails allservicesDetails = new UtilityDetails();
         allservicesDetails.setId(allservice.getId());
         allservicesDetails.setName(allservice.getName());
         allservicesDetails.setDesc(allservice.getDesc());
