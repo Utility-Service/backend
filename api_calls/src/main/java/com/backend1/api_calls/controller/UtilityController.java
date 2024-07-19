@@ -19,7 +19,7 @@ public class UtilityController {
    private UtilityService utility;
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping("/Utility")
+    @GetMapping("/utilities")
     public List<UtilityDetails> getUtilities() {
        return utility.getUtilities();
    }
