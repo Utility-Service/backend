@@ -16,6 +16,7 @@ public class UtilityService {
     @Autowired
     private UtilityRepository utilityRepository;    //making an object from built-in jpa reposiotry
 
+    //service function/method for without parameter
     public List<UtilityDetails> getAllUtilities() { //service function that interact with db via jpaObject
 
         List<Utility> utilities = utilityRepository.findAll();    //list/arr data store all rows
@@ -24,7 +25,16 @@ public class UtilityService {
         utilities.forEach(item -> utilityDetailsList.add(convertUtilityToUtilityDetails(item)));
         return utilityDetailsList;
     }
-
+    //service function/method for custom parameter
+    public List<UtilityDetails> getUtilitiesByType(String typeofservice) {
+         List<Utility> utilities = utilityRepository.findByType(typeofservice);    //list/arr data store all rows
+         List<UtilityDetails> utilityDetailsList = new ArrayList<>();
+ 
+         utilities.forEach(item -> utilityDetailsList.add(convertUtilityToUtilityDetails(item)));
+         return utilityDetailsList;
+    }
+    
+    //additional custom function
     private UtilityDetails convertUtilityToUtilityDetails(Utility utility) {
 
         UtilityDetails utilityDetails = new UtilityDetails();
@@ -36,11 +46,4 @@ public class UtilityService {
         return utilityDetails;
     }
 
-    public List<UtilityDetails> getUtilitiesByType(String typeofservice) {
-         List<Utility> utilities = utilityRepository.findByType(typeofservice);    //list/arr data store all rows
-         List<UtilityDetails> utilityDetailsList = new ArrayList<>();
- 
-         utilities.forEach(item -> utilityDetailsList.add(convertUtilityToUtilityDetails(item)));
-         return utilityDetailsList;
-    }
 }
