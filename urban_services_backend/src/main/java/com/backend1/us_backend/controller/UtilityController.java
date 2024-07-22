@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend1.us_backend.models.UtilityDetails;
-import com.backend1.us_backend.entity.Utility;
 import com.backend1.us_backend.service.UtilityService;
 
 @RestController
@@ -20,8 +19,7 @@ public class UtilityController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/utilities")
-    public List<Utility> getUtilities(){    //api name or controller name
-
+    public List<UtilityDetails> getUtilities(){    //api name or controller name
         return utilityService.getAllUtilities();   //api calls the method/function from service
     }
 
