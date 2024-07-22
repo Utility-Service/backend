@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS public.utilities
+(
+    id integer NOT NULL DEFAULT nextval('utilities_id_seq'::regclass),
+    name character varying(100) COLLATE pg_catalog."default",
+    description text COLLATE pg_catalog."default",
+    typeofservice character varying(50) COLLATE pg_catalog."default",
+    pictures character varying(255) COLLATE pg_catalog."default",
+    CONSTRAINT utilities_pkey PRIMARY KEY (id)
+)
