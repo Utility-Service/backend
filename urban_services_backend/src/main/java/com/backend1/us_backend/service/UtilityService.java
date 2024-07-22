@@ -6,33 +6,33 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.backend1.us_backend.entity.Allservice;
+import com.backend1.us_backend.entity.Utility;
 import com.backend1.us_backend.models.UtilityDetails;
-import com.backend1.us_backend.repository.AllservicesRepository;
+import com.backend1.us_backend.repository.UtilityRepository;
 
 @Service
 public class UtilityService {
 
     @Autowired
-    private AllservicesRepository AllservicesRepository;
+    private UtilityRepository utilityRepository;
 
     public List<UtilityDetails> getUtilities() {
 
-        List<Allservice> allServices = AllservicesRepository.findAll();
-        List<UtilityDetails> allservicesDetailsList = new ArrayList<>();
+        List<Utility> allServices = utilityRepository.findAll();
+        List<UtilityDetails> utilityDetailsList = new ArrayList<>();
 
-        allServices.forEach(item -> allservicesDetailsList.add(convertAllServicesToAllServicesDetails(item)));
-        return allservicesDetailsList;
+        allServices.forEach(item -> utilityDetailsList.add(convertUtilityToUtilityDetails(item)));
+        return utilityDetailsList;
     }
 
-    private UtilityDetails convertAllServicesToAllServicesDetails(Allservice allservice) {
+    private UtilityDetails convertUtilityToUtilityDetails(Utility utility) {
 
-        UtilityDetails allservicesDetails = new UtilityDetails();
-        allservicesDetails.setId(allservice.getId());
-        allservicesDetails.setName(allservice.getName());
-        allservicesDetails.setDesc(allservice.getDesc());
-        allservicesDetails.setDisplayName(allservice.getDisplayName());
-        allservicesDetails.setPicture(allservice.getPicture());
-        return allservicesDetails;
+        UtilityDetails utilityDetails = new UtilityDetails();
+        utilityDetails.setId(utility.getId());
+        utilityDetails.setName(utility.getName());
+        utilityDetails.setDesc(utility.getDesc());
+        utilityDetails.setDisplayName(utility.getDisplayName());
+        utilityDetails.setPicture(utility.getPicture());
+        return utilityDetails;
     }
 }
