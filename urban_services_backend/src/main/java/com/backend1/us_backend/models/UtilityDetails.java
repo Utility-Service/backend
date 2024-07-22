@@ -11,8 +11,8 @@ public class UtilityDetails {
 
     private String desc;
 
-    private String displayName;
+    private String type_of_service;
 
-    private String picture;
+    private String pictures;
 
 }

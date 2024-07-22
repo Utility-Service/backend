@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend1.us_backend.models.UtilityDetails;
+import com.backend1.us_backend.entity.Utility;
 import com.backend1.us_backend.service.UtilityService;
 
 @RestController
@@ -15,12 +16,13 @@ import com.backend1.us_backend.service.UtilityService;
 public class UtilityController {
 
     @Autowired
-    private UtilityService utility;
+    private UtilityService utilityService;
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/utilities")
-    public List<UtilityDetails> getUtilities() {
-        return utility.getUtilities();
+    public List<Utility> getUtilities(){    //api name or controller name
+
+        return utilityService.getAllUtilities();   //api calls the method/function from service
     }
 
 }

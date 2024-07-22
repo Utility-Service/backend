@@ -12,10 +12,26 @@ import lombok.Data;
 @Entity
 @Table(name = "utilities")
 public class Utility {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "utilities_id_seq")
+    @SequenceGenerator(name = "utilities_id_seq", sequenceName = "utilities_id_seq", allocationSize = 1)
     private Integer id;
+
+    @Column(name = "name", length = 100)
+    private String name;
+
+    @Column(name = "description", columnDefinition = "text")
+    private String description;
+
+    @Column(name = "typeofservice", length = 50)
+    private String typeOfService;
+
+    @Column(name = "pictures", length = 255)
+    private String pictures;
+
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // private Integer id;
 
     // @CreationTimestamp
     // @Column(name = "created", updatable = false)
@@ -25,41 +41,41 @@ public class Utility {
     // @Column(name = "updated")
     // private Date updated;
 
-    @Column(name = "desc", columnDefinition = "text")
-    private String desc;
+    // @Column(name = "desc", columnDefinition = "text")
+    // private String desc;
 
-    @Column(name = "name", columnDefinition = "text")
-    private String name;
+    // @Column(name = "name", columnDefinition = "text")
+    // private String name;
 
-    @Column(name = "tags_plural", columnDefinition = "text")
-    private String tagsPlural;
+    // @Column(name = "tags_plural", columnDefinition = "text")
+    // private String tagsPlural;
 
-    @Column(name = "tags_name", columnDefinition = "text")
-    private String tagsName;
+    // @Column(name = "tags_name", columnDefinition = "text")
+    // private String tagsName;
 
-    @Column(name = "category_name_singular", columnDefinition = "text")
-    private String categoryNameSingular;
+    // @Column(name = "category_name_singular", columnDefinition = "text")
+    // private String categoryNameSingular;
 
-    @Column(name = "category_name_service", columnDefinition = "text")
-    private String categoryNameService;
+    // @Column(name = "category_name_service", columnDefinition = "text")
+    // private String categoryNameService;
 
-    @Column(name = "category_name_plural", columnDefinition = "text")
-    private String categoryNamePlural;
+    // @Column(name = "category_name_plural", columnDefinition = "text")
+    // private String categoryNamePlural;
 
-    @Column(name = "category_name_article", columnDefinition = "text")
-    private String categoryNameArticle;
+    // @Column(name = "category_name_article", columnDefinition = "text")
+    // private String categoryNameArticle;
 
-    @Column(name = "display_name", columnDefinition = "text")
-    private String displayName;
+    // @Column(name = "display_name", columnDefinition = "text")
+    // private String displayName;
 
-    @Column(name = "picture", columnDefinition = "text")
-    private String picture;
+    // @Column(name = "picture", columnDefinition = "text")
+    // private String picture;
 
-    @Column(name = "picture_small", columnDefinition = "text")
-    private String pictureSmall;
+    // @Column(name = "picture_small", columnDefinition = "text")
+    // private String pictureSmall;
 
-    @Column(name = "picture_big", columnDefinition = "text")
-    private String pictureBig;
+    // @Column(name = "picture_big", columnDefinition = "text")
+    // private String pictureBig;
 
     /*
      * // Getters and Setters
