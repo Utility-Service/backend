@@ -25,13 +25,14 @@ public class UtilityService {
         utilities.forEach(item -> utilityDetailsList.add(convertUtilityToUtilityDetails(item)));
         return utilityDetailsList;
     }
+
     //service function/method for custom parameter
     public List<UtilityDetails> getUtilitiesByType(String typeofservice) {
-         List<Utility> utilities = utilityRepository.findByType(typeofservice);    //list/arr data store all rows
-         List<UtilityDetails> utilityDetailsList = new ArrayList<>();
- 
-         utilities.forEach(item -> utilityDetailsList.add(convertUtilityToUtilityDetails(item)));
-         return utilityDetailsList;
+        List<Utility> utilities = utilityRepository.findByTypeOfService(typeofservice);    //list/arr data store all rows
+        List<UtilityDetails> utilityDetailsList = new ArrayList<>();
+
+        utilities.forEach(item -> utilityDetailsList.add(convertUtilityToUtilityDetails(item)));
+        return utilityDetailsList;
     }
     
     //additional custom function

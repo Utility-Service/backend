@@ -20,7 +20,8 @@ public class UtilityController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/utilities")
-    public List<UtilityDetails> getUtilitiesByType(@RequestParam String typeofservice) {
+    public List<UtilityDetails> getUtilitiesByType(@RequestParam(required = false) String typeofservice) {
+        System.out.println("type of service: "+typeofservice);
         if(typeofservice==null){
             return utilityService.getAllUtilities();
         }else{

@@ -10,6 +10,6 @@ import com.backend1.us_backend.entity.Utility;
 @Repository
 public interface UtilityRepository extends JpaRepository<Utility, Integer> {
 
-    List<Utility> findByType(String typeofservice);
+    List<Utility> findByTypeOfService(String typeOfService);
 
 }
