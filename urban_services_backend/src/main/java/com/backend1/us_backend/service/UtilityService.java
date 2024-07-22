@@ -18,10 +18,10 @@ public class UtilityService {
 
     public List<UtilityDetails> getAllUtilities() { //service function that interact with db via jpaObject
 
-        List<Utility> allServices = utilityRepository.findAll();    //list/arr data store all rows
+        List<Utility> utilities = utilityRepository.findAll();    //list/arr data store all rows
         List<UtilityDetails> utilityDetailsList = new ArrayList<>();
 
-        allServices.forEach(item -> utilityDetailsList.add(convertUtilityToUtilityDetails(item)));
+        utilities.forEach(item -> utilityDetailsList.add(convertUtilityToUtilityDetails(item)));
         return utilityDetailsList;
     }
 
