@@ -3,9 +3,9 @@ package com.backend1.us_backend.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.backend1.us_backend.entity.Customer;
+import com.backend1.us_backend.entity.Agent;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+public interface AgentRepository extends JpaRepository<Agent, Integer> {
 
 }
