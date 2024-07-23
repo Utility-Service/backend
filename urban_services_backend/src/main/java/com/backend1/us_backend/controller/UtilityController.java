@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend1.us_backend.models.UtilityDetails;
-import com.backend1.us_backend.entity.Utility;
 import com.backend1.us_backend.service.UtilityService;
 
 @RestController
@@ -20,9 +20,12 @@ public class UtilityController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/utilities")
-    public List<Utility> getUtilities(){    //api name or controller name
-
-        return utilityService.getAllUtilities();   //api calls the method/function from service
+    public List<UtilityDetails> getUtilitiesByType(@RequestParam(required = false) String typeofservice) {
+        System.out.println("type of service: "+typeofservice);
+        if(typeofservice==null){
+            return utilityService.getAllUtilities();
+        }else{
+            return utilityService.getUtilitiesByType(typeofservice);
+        }
     }
-
 }
