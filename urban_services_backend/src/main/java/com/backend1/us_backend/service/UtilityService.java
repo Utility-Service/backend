@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.backend1.us_backend.entity.Utility;
 import com.backend1.us_backend.models.UtilityDetails;
-import com.backend1.us_backend.repository.UtilityRepository;
+import com.backend1.us_backend.repository.UtilityRepository; 
 
 @Service
 public class UtilityService {
