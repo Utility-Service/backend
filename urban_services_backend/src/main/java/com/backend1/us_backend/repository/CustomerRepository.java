@@ -9,5 +9,5 @@ import com.backend1.us_backend.entity.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
-    // List<Customer> findAllByCustomer_id();
+
 }
