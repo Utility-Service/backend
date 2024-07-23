@@ -1,6 +1,6 @@
 package com.backend1.us_backend.entity;
 
-import org.hibernate.type.descriptor.jdbc.TimeAsTimestampWithTimeZoneJdbcType;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -46,10 +46,10 @@ public class Customer {
     private String zip_code;
 
     @Column(name = "created_at")
-    private TimeAsTimestampWithTimeZoneJdbcType created_at;
+    private LocalDateTime created_at;
 
     @Column(name = "updated_at")
-    private TimeAsTimestampWithTimeZoneJdbcType updated_at;
+    private LocalDateTime updated_at;
 
     @Column(name = "password")
     private String password;

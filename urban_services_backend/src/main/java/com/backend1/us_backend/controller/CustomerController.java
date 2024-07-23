@@ -16,12 +16,9 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    // @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/admin/customers")
     public List<CustomerDetails> getAllCustomers() {
-        System.out.println("****************************************************************************");
-        System.out.println("Customer controller hitted!");
-        System.out.println("****************************************************************************");
         return customerService.getAllCustomers();
     }
 

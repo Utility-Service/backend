@@ -17,36 +17,25 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     public List<CustomerDetails> getAllCustomers() { // service function that interact with db via jpaObject
-        System.out.println("****************************************************************************");
-        System.out.println("getAllCutomers hitted!");
-        System.out.println("****************************************************************************");
-        System.out.println("line 24");
         List<Customer> customers = customerRepository.findAll(); // list/arr data store all rows
-        System.out.println("line 26");
         List<CustomerDetails> customerDetailsList = new ArrayList<>();
-        System.out.println("line 28");
         customers.forEach(item -> customerDetailsList.add(convertCustomerToCustomerDetails(item)));
-        System.out.println("line 30");
         return customerDetailsList;
     }
 
     private CustomerDetails convertCustomerToCustomerDetails(Customer customer) {
-        System.out.println("****************************************************************************");
-        System.out.println("convert hitted!");
-        System.out.println("****************************************************************************");
         CustomerDetails customerDetails = new CustomerDetails();
-        customerDetails.setCustomer_id(customerDetails.getCustomer_id());
-        customerDetails.setFirst_name(customerDetails.getFirst_name());
-        customerDetails.setLast_name(customerDetails.getLast_name());
-        customerDetails.setEmail(customerDetails.getEmail());
-        customerDetails.setPhone_number(customerDetails.getPhone_number());
-        customerDetails.setAddress(customerDetails.getAddress());
-        customerDetails.setCity(customerDetails.getCity());
-        customerDetails.setState(customerDetails.getState());
-        customerDetails.setCreated_at(customerDetails.getCreated_at());
-        customerDetails.setUpdated_at(customerDetails.getUpdated_at());
-        customerDetails.setPassword(customerDetails.getPassword());
-
+        customerDetails.setCustomer_id(customer.getCustomer_id());
+        customerDetails.setFirst_name(customer.getFirst_name());
+        customerDetails.setLast_name(customer.getLast_name());
+        customerDetails.setEmail(customer.getEmail());
+        customerDetails.setPhone_number(customer.getPhone_number());
+        customerDetails.setAddress(customer.getAddress());
+        customerDetails.setCity(customer.getCity());
+        customerDetails.setState(customer.getState());
+        customerDetails.setCreated_at(customer.getCreated_at());
+        customerDetails.setUpdated_at(customer.getUpdated_at());
+        customerDetails.setPassword(customer.getPassword());
         return customerDetails;
 
     }

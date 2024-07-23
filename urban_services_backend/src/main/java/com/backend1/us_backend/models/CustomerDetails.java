@@ -1,6 +1,6 @@
 package com.backend1.us_backend.models;
 
-import org.hibernate.type.descriptor.jdbc.TimeAsTimestampWithTimeZoneJdbcType;
+import java.time.LocalDateTime;
 
 import lombok.Data;
 
@@ -24,9 +24,9 @@ public class CustomerDetails {
 
     private String zip_code;
 
-    private TimeAsTimestampWithTimeZoneJdbcType created_at;
+    private LocalDateTime created_at;
 
-    private TimeAsTimestampWithTimeZoneJdbcType updated_at;
+    private LocalDateTime updated_at;
 
     private String password;
 
