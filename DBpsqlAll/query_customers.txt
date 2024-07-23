@@ -1,0 +1,26 @@
+-- Table: public.customers
+
+-- DROP TABLE IF EXISTS public.customers;
+
+CREATE TABLE IF NOT EXISTS public.customers
+(
+    customer_id integer NOT NULL DEFAULT nextval('customsers_customer_id_seq'::regclass),
+    first_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    last_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    email character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    phone_number character varying(15) COLLATE pg_catalog."default",
+    address text COLLATE pg_catalog."default",
+    city character varying(50) COLLATE pg_catalog."default",
+    state character varying(50) COLLATE pg_catalog."default",
+    zip_code character varying(10) COLLATE pg_catalog."default",
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    password character varying(250) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT customsers_pkey PRIMARY KEY (customer_id),
+    CONSTRAINT customsers_email_key UNIQUE (email)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.customers
+    OWNER to postgres;

@@ -1,0 +1,25 @@
+-- Table: public.agents
+
+-- DROP TABLE IF EXISTS public.agents;
+
+CREATE TABLE IF NOT EXISTS public.agents
+(
+    agent_id integer NOT NULL DEFAULT nextval('agents_agent_id_seq'::regclass),
+    first_name character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    last_name character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    aadhar_number character varying(15) COLLATE pg_catalog."default" NOT NULL,
+    phone_number character varying(15) COLLATE pg_catalog."default" NOT NULL,
+    hire_date date,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    password character varying(250) COLLATE pg_catalog."default" NOT NULL,
+    profession character varying(100) COLLATE pg_catalog."default",
+    CONSTRAINT agents_pkey PRIMARY KEY (agent_id),
+    CONSTRAINT agents_aadhar_number_key UNIQUE (aadhar_number),
+    CONSTRAINT agents_phone_number_key UNIQUE (phone_number)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.agents
+    OWNER to postgres;
