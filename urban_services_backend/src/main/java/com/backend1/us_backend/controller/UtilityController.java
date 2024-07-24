@@ -12,7 +12,6 @@ import com.backend1.us_backend.models.UtilityDetails;
 import com.backend1.us_backend.service.UtilityService;
 
 @RestController
-
 public class UtilityController {
 
     @Autowired
@@ -21,11 +20,12 @@ public class UtilityController {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/utilities")
     public List<UtilityDetails> getUtilitiesByType(@RequestParam(required = false) String typeofservice) {
-        System.out.println("type of service: "+typeofservice);
-        if(typeofservice==null){
+        System.out.println("type of service: " + typeofservice);
+        if (typeofservice == null) {
             return utilityService.getAllUtilities();
-        }else{
+        } else {
             return utilityService.getUtilitiesByType(typeofservice);
         }
     }
+
 }
