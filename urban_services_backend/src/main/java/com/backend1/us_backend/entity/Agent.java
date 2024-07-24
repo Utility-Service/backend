@@ -1,5 +1,6 @@
 package com.backend1.us_backend.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -13,9 +14,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="agents")
-public class Agent{
-
+@Table(name = "agents")
+public class Agent {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "agents_agent_id_seq")
     @SequenceGenerator(name = "agents_agent_id_seq", sequenceName = "agents_agent_id_seq", allocationSize = 1)
@@ -34,8 +34,7 @@ public class Agent{
     private String phone_number;
 
     @Column(name = "hire_date")
-    private LocalDateTime hire_date;
-
+    private LocalDate hire_date;
 
     @Column(name = "created_at")
     private LocalDateTime created_at;
@@ -48,5 +47,4 @@ public class Agent{
 
     @Column(name = "profession")
     private String profession;
-
 }

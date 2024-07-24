@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.backend1.us_backend.service.AgentService;
 import com.backend1.us_backend.models.AgentDetails;
-import com.backend1.us_backend.models.CustomerDetails;
+import com.backend1.us_backend.service.AgentService;
 
 @RestController
 public class AgentController {
@@ -20,7 +19,6 @@ public class AgentController {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/admin/agents")
     public List<AgentDetails> getAllAgents() {
-        return agentService.getAllAgentss();
+        return agentService.getAllAgents();
     }
-    
 }
