@@ -20,8 +20,8 @@ public class BookingController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/admin/bookings") // Only admin should be able to see all the bookings
-    public List<BookingDetails> getALlBookingsWithCustomersNames() {
-        return bookingService.getALlBookingsWithCustomersNames();
+    public List<BookingDetails> getAllBookingsWithCustomersNamesAPI() {
+        return bookingService.getAllBookingsWithCustomersNames();
     }
 
 }

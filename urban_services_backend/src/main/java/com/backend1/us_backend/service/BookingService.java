@@ -17,8 +17,11 @@ public class BookingService {
     @Autowired
     private BookingRepository bookingRepository;
 
-    public List<BookingDetails> getALlBookingsWithCustomersNames() {
-        return bookingRepository.findAllBookingsWithCustomerNames();
+    public List<BookingDetails> getAllBookingsWithCustomersNames() {
+        List<BookingDetails> bd1;
+        bd1 = bookingRepository.findAllBookingsWithCustomerNames();
+        System.out.println(bd1);
+        return bd1;
     }
 
     // public List<BookingDetails> getAllBookings() {
