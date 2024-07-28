@@ -16,7 +16,7 @@ public class BookingDetails {
     private String first_name;
 
     private String last_name;
-    // end
+    // // end
 
     private Integer agent_id;
 

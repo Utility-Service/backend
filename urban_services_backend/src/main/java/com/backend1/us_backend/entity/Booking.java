@@ -56,4 +56,5 @@ public class Booking {
     @JoinColumn(name = "customer_id", referencedColumnName = "customer_id") // Reference to customer entity to fetch its
                                                                             // attributes
     private Customer customer;
+
 }
