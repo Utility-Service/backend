@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS public.agents
     updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     password character varying(250) COLLATE pg_catalog."default" NOT NULL,
     profession character varying(100) COLLATE pg_catalog."default",
+    available boolean,
     CONSTRAINT agents_pkey PRIMARY KEY (agent_id),
     CONSTRAINT agents_aadhar_number_key UNIQUE (aadhar_number),
     CONSTRAINT agents_phone_number_key UNIQUE (phone_number)
