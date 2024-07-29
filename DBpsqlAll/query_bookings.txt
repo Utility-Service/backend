@@ -1,7 +1,6 @@
 -- Table: public.bookings
 
 -- DROP TABLE IF EXISTS public.bookings;
-
 CREATE TABLE IF NOT EXISTS public.bookings
 (
     booking_id integer NOT NULL DEFAULT nextval('bookings_booking_id_seq'::regclass),
