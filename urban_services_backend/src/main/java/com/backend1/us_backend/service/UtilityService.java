@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.backend1.us_backend.DTO.UtilityDetails;
 import com.backend1.us_backend.entity.Utility;
-import com.backend1.us_backend.models.UtilityDetails;
 import com.backend1.us_backend.repository.UtilityRepository; 
 
 @Service
@@ -39,7 +39,7 @@ public class UtilityService {
     private UtilityDetails convertUtilityToUtilityDetails(Utility utility) {
 
         UtilityDetails utilityDetails = new UtilityDetails();
-        utilityDetails.setId(utility.getId());
+        utilityDetails.setId(utility.getUtilities_id());
         utilityDetails.setName(utility.getName());
         utilityDetails.setDesc(utility.getDescription());
         utilityDetails.setType_of_service(utility.getTypeOfService());

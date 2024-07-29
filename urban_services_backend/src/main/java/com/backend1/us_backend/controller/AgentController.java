@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.backend1.us_backend.models.AgentDetails;
+import com.backend1.us_backend.DTO.AgentDetails;
 import com.backend1.us_backend.service.AgentService;
 
 @RestController

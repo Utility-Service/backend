@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.backend1.us_backend.models.UtilityDetails;
+import com.backend1.us_backend.DTO.UtilityDetails;
 import com.backend1.us_backend.service.UtilityService;
 
 @RestController
@@ -27,5 +27,4 @@ public class UtilityController {
             return utilityService.getUtilitiesByType(typeofservice);
         }
     }
-
 }

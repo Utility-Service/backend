@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.backend1.us_backend.DTO.AgentDetails;
 import com.backend1.us_backend.entity.Agent;
-import com.backend1.us_backend.models.AgentDetails;
 import com.backend1.us_backend.repository.AgentRepository;
 
 @Service

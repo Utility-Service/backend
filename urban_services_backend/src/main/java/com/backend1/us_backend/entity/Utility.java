@@ -15,7 +15,7 @@ public class Utility {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "utilities_id_seq")
     @SequenceGenerator(name = "utilities_id_seq", sequenceName = "utilities_id_seq", allocationSize = 1)
-    private Integer id;
+    private Integer utilities_id;;
 
     @Column(name = "name", length = 100)
     private String name;

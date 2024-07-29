@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend1.us_backend.service.BookingService;
-import com.backend1.us_backend.models.BookingDetails;
+import com.backend1.us_backend.DTO.BookingDetails;
+import com.backend1.us_backend.entity.Booking;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
