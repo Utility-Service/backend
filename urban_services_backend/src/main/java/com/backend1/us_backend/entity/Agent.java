@@ -47,4 +47,11 @@ public class Agent {
 
     @Column(name = "profession")
     private String profession;
+
+    @Column(name = "available")
+    private Boolean available;
+
+    @Column(name = "tos")
+    private String tos;
+
 }

@@ -1,5 +1,7 @@
 package com.backend1.us_backend.entity;
 
+import java.math.BigDecimal;
+
 // import org.hibernate.annotations.CreationTimestamp;
 // import org.hibernate.annotations.UpdateTimestamp;
 
@@ -28,6 +30,9 @@ public class Utility {
 
     @Column(name = "pictures", length = 255)
     private String pictures;
+
+    @Column(name = "price", columnDefinition = "numeric")
+    private BigDecimal price;
 
     // @Id
     // @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -2,12 +2,16 @@ package com.backend1.us_backend.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.backend1.us_backend.DTO.AgentDetails;
 import com.backend1.us_backend.entity.Agent;
+import com.backend1.us_backend.entity.Utility;
 import com.backend1.us_backend.repository.AgentRepository;
+import com.backend1.us_backend.repository.UtilityRepository;
 
 @Service
 public class AgentService {
@@ -38,4 +42,17 @@ public class AgentService {
         return agentDetails;
     }
 
+    @Autowired
+    private UtilityRepository utilityRepository;
+    public Integer findAgentIdByUtilityId(Integer utilities_id) {
+        Optional<Utility> typeOfService=utilityRepository.findById(utilities_id);
+        String tos=typeOfService.get().getTypeOfService();
+        System.out.println(tos);
+        List<Agent> agents = agentRepository.findByTos(tos);
+        if(agents.size()==0){
+            return null;
+        }else{
+            return agents.get(0).getAgent_id();
+        }
+    }
 }

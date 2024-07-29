@@ -1,6 +1,7 @@
 package com.backend1.us_backend.DTO;
 
 import lombok.Data;
+import java.math.BigDecimal;
 
 @Data
 public class UtilityDetails {
@@ -15,4 +16,5 @@ public class UtilityDetails {
 
     private String pictures;
 
+    private BigDecimal price;
 }

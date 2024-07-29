@@ -22,26 +22,30 @@ public class Booking {
 
     // @Column(name = "customer_id")
     // private Integer customer_id;
+    @ManyToOne
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id") // Reference to customer entity to fetch its attributes
+    private Customer customer;
 
-    // adding customers attributes
-    // @Column(name = "first_name")
-    // private String first_name;
+    // @Column(name = "agent_id")
+    // private Integer agent_id;
+    @ManyToOne
+    @JoinColumn(name = "agent_id", referencedColumnName = "agent_id")
+    private Agent agent;
 
-    // @Column(name = "last_name")
-    // private String last_name;
-    // end
-
-    @Column(name = "agent_id")
-    private Integer agent_id;
-
-    @Column(name = "utilities_id")
-    private Integer utilities_id;
+    // @Column(name = "utilities_id")
+    // private Integer utilities_id;
+    @ManyToOne
+    @JoinColumn(name = "utilities_id", referencedColumnName = "utilities_id")
+    private Utility utility;
 
     @Column(name = "booking_date")
     private LocalDate booking_date;
 
-    @Column(name = "schedule_date")
+    @Column(name = "scheduled_date")
     private LocalDate schedule_date;
+
+    @Column(name = "scheduled_time")
+    private LocalDateTime scheduled_time; 
 
     @Column(name = "status")
     private String status;
@@ -52,9 +56,7 @@ public class Booking {
     @Column(name = "updated_at")
     private LocalDateTime updated_at;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id") // Reference to customer entity to fetch its
-                                                                            // attributes
-    private Customer customer;
+    @Column(name = "place", length = 255)
+    private String place;
 
 }
