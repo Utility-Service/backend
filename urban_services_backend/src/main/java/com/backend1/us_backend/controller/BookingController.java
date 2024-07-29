@@ -6,13 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend1.us_backend.service.BookingService;
-<<<<<<< HEAD
-import com.backend1.us_backend.models.BookingDetails;
-=======
 import com.backend1.us_backend.DTO.BookingDetails;
 import com.backend1.us_backend.entity.Booking;
 
->>>>>>> 01a2673 (Added login and Signup)
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 

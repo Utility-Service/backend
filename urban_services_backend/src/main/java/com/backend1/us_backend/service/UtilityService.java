@@ -39,7 +39,7 @@ public class UtilityService {
     private UtilityDetails convertUtilityToUtilityDetails(Utility utility) {
 
         UtilityDetails utilityDetails = new UtilityDetails();
-        utilityDetails.setId(utility.getId());
+        utilityDetails.setId(utility.getUtilities_id());
         utilityDetails.setName(utility.getName());
         utilityDetails.setDesc(utility.getDescription());
         utilityDetails.setType_of_service(utility.getTypeOfService());
