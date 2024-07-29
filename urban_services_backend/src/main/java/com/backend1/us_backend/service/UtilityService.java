@@ -44,7 +44,7 @@ public class UtilityService {
         utilityDetails.setDesc(utility.getDescription());
         utilityDetails.setType_of_service(utility.getTypeOfService());
         utilityDetails.setPictures(utility.getPictures());
+        utilityDetails.setPrice(utility.getPrice());
         return utilityDetails;
     }
-
 }
