@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.backend1.us_backend.DTO.CustomerDetails;
 import com.backend1.us_backend.entity.Customer;
-import com.backend1.us_backend.models.CustomerDetails;
 import com.backend1.us_backend.repository.CustomerRepository;
 
 @Service
@@ -40,4 +40,32 @@ public class CustomerService {
 
     }
 
+    public Customer addCustomer(CustomerDetails customerDetails) {
+        Customer customer = new Customer();
+        customer.setFirst_name(customerDetails.getFirst_name());
+        customer.setLast_name(customerDetails.getLast_name());
+        customer.setEmail(customerDetails.getEmail());
+        customer.setPhone_number(customerDetails.getPhone_number());
+        customer.setAddress(customerDetails.getAddress());
+        customer.setCity(customerDetails.getCity());
+        customer.setState(customerDetails.getState());
+        customer.setZip_code(customerDetails.getZip_code());
+        customer.setCreated_at(customerDetails.getCreated_at());
+        customer.setUpdated_at(customerDetails.getUpdated_at());
+        customer.setPassword(customerDetails.getPassword());
+
+        customerRepository.save(customer);
+        return customer;
+    }
+
+    public Customer loginCustomer(CustomerDetails customerDetails) {
+        Customer customer = customerRepository.findByEmail(customerDetails.getEmail());
+        if(customer == null) {
+            return null;
+        }
+        if(customer.getPassword().equals(customerDetails.getPassword())) {
+            return customer;
+        }
+        return null;
+    } 
 }

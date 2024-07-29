@@ -1,4 +1,4 @@
-package com.backend1.us_backend.models;
+package com.backend1.us_backend.DTO;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

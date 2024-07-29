@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.backend1.us_backend.DTO.BookingDetails;
 import com.backend1.us_backend.entity.Booking;
-import com.backend1.us_backend.models.BookingDetails;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Integer> {
