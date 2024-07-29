@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS public.bookings
     status character varying(50) COLLATE pg_catalog."default" NOT NULL,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    scheduled_time timestamp without time zone,
+    scheduled_time timestamp without time zone NOT NULL,
     place character varying(50) COLLATE pg_catalog."default",
     CONSTRAINT bookings_pkey PRIMARY KEY (booking_id),
     CONSTRAINT bookings_agent_id_fkey FOREIGN KEY (agent_id)
