@@ -60,9 +60,11 @@ public class CustomerService {
 
     public Customer loginCustomer(CustomerDetails customerDetails) {
         Customer customer = customerRepository.findByEmail(customerDetails.getEmail());
+        //customer not exits
         if(customer == null) {
             return null;
         }
+        //customer exists then check password
         if(customer.getPassword().equals(customerDetails.getPassword())) {
             return customer;
         }

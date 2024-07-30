@@ -1,5 +1,6 @@
 package com.backend1.us_backend.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,13 @@ import com.backend1.us_backend.entity.Agent;
 import com.backend1.us_backend.entity.Booking;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.backend1.us_backend.response.BookingResponse;
+import com.backend1.us_backend.response.CancelBookingResponse;
 
 @RestController
 public class BookingController {
@@ -38,6 +42,7 @@ public class BookingController {
         System.out.println(bookingDTO);
         
         String status="pending";
+        //find agent id
         Integer agent_id;
         Integer utilities_id=bookingDTO.getUtilities_id();
         agent_id=agentService.findAgentIdByUtilityId(utilities_id);
@@ -56,4 +61,48 @@ public class BookingController {
         return bookingResponse;
     }
     
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/mybookings-active/{customerId}")
+    public List<Booking> getMyBookingsPendingAPI(@PathVariable Integer customerId) {
+        List<Booking> allBookings= bookingService.getMyBookings(customerId);
+        List<Booking> pendingBookings = new ArrayList<>();
+
+        for (Booking booking : allBookings) {
+            if (booking.getStatus().trim().equals("pending")) {
+                pendingBookings.add(booking);
+            }
+        }
+        return pendingBookings;
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/mybookings-cancelled/{customerId}")
+    public List<Booking> getMyBookingsCancelledAPI(@PathVariable Integer customerId) {
+        List<Booking> allBookings= bookingService.getMyBookings(customerId);
+        // System.out.println(allBookings);
+        List<Booking> cancelledBookings = new ArrayList<>();
+
+        for (Booking booking : allBookings) {
+            if (booking.getStatus().trim().equals("cancelled")) {
+                cancelledBookings.add(booking);
+            }
+        }
+        return cancelledBookings;
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @DeleteMapping("/cancel/{booking_id}")
+    public CancelBookingResponse cancelBooking(@PathVariable Integer booking_id) {
+        Booking bookingCancelled=bookingService.cancelBooking(booking_id);
+        
+        CancelBookingResponse response = new CancelBookingResponse();
+        if (bookingCancelled != null) {
+            response.setMessage("Booking cancelled successfully :(");
+            response.setDeleted(true);
+        } else {
+            response.setMessage("Booking not found");
+            response.setDeleted(false);
+        }
+        return response;
+    }
 }

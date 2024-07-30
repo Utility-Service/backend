@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import com.backend1.us_backend.repository.AgentRepository;
 import com.backend1.us_backend.repository.BookingRepository;
 import com.backend1.us_backend.repository.CustomerRepository;
 import com.backend1.us_backend.repository.UtilityRepository;
+import com.backend1.us_backend.response.CancelBookingResponse;
 
 @Service
 public class BookingService {
@@ -86,4 +88,17 @@ public class BookingService {
     //     bookingDetails.setUpdated_at(booking.getUpdated_at());
     //     return bookingDetails;
     // }
+
+    public List<Booking> getMyBookings(Integer customerId) {
+        return bookingRepository.findByCustomer(customerRepository.findById(customerId).orElseThrow(() -> new RuntimeException("Customer not found")));
+    }
+
+    public Booking cancelBooking(Integer booking_id) {
+
+        Booking bookingTobeCancelled = bookingRepository.findById(booking_id).orElseThrow(() -> new RuntimeException("Customer not found"));
+        
+        bookingTobeCancelled.setStatus("cancelled");
+        bookingRepository.save(bookingTobeCancelled);
+        return bookingTobeCancelled;
+    }
 }

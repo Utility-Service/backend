@@ -33,6 +33,9 @@ public class CustomerController {
     @CrossOrigin
     @PostMapping(path = "/login", consumes = "application/json")
     public LoginResponse loginCustomer(@RequestBody CustomerDetails customerDTO) {
+        System.out.println("Login DTO");
+        System.out.println(customerDTO);
+        
         Customer customer = customerService.loginCustomer(customerDTO);
         LoginResponse loginResponse = new LoginResponse();
         if (customer != null) {
@@ -49,6 +52,7 @@ public class CustomerController {
     public SignupResponse signupCustomer(@RequestBody CustomerDetails customerDTO) {
         System.out.println(customerDTO);
         Customer customer = customerService.addCustomer(customerDTO);
+        
         SignupResponse signupResponse = new SignupResponse();
         if (customer != null) {
             signupResponse.setMessage("Signup successful");

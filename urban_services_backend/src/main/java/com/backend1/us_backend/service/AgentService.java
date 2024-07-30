@@ -45,9 +45,13 @@ public class AgentService {
     @Autowired
     private UtilityRepository utilityRepository;
     public Integer findAgentIdByUtilityId(Integer utilities_id) {
+        //find tos from utility id
         Optional<Utility> typeOfService=utilityRepository.findById(utilities_id);
+
         String tos=typeOfService.get().getTypeOfService();
         System.out.println(tos);
+
+        //list of agent providing that type of service
         List<Agent> agents = agentRepository.findByTos(tos);
         if(agents.size()==0){
             return null;

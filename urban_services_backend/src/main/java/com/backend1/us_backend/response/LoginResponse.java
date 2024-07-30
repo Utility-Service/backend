@@ -5,6 +5,8 @@ public class LoginResponse {
     private String message;
     public Customer customer;
 
+
+    //getter setter
     public String getMessage() {
         return message;
     }

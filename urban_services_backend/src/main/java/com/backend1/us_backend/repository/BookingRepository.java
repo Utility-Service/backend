@@ -1,6 +1,7 @@
 package com.backend1.us_backend.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.backend1.us_backend.DTO.BookingDetails;
 import com.backend1.us_backend.entity.Booking;
+import com.backend1.us_backend.entity.Customer;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Integer> {
@@ -16,4 +18,5 @@ public interface BookingRepository extends JpaRepository<Booking, Integer> {
 
     // List<BookingDetails> findAllBooking();
     // List<Booking> findAll();
+    List<Booking> findByCustomer(Customer customer);
 }
