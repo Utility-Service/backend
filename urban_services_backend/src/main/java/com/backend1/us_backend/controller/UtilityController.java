@@ -17,7 +17,7 @@ public class UtilityController {
     @Autowired
     private UtilityService utilityService;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
     @GetMapping("/utilities")
     public List<UtilityDetails> getUtilitiesByType(@RequestParam(required = false) String typeofservice) {
         System.out.println("type of service: " + typeofservice);
