@@ -27,7 +27,7 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @GetMapping("/admin/bookings") // Only admin should be able to see all the bookings
     public List<Booking> getAllBookingsWithCustomersNamesAPI() {
         return bookingService.getAllBookingsWithCustomersNames();
@@ -36,7 +36,7 @@ public class BookingController {
     @Autowired
     private AgentService agentService;
     
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @PostMapping(path ="/booking/add",consumes = "application/json")
     public BookingResponse postMethodName(@RequestBody BookingDetails bookingDTO) {
         System.out.println(bookingDTO);
@@ -61,7 +61,7 @@ public class BookingController {
         return bookingResponse;
     }
     
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @GetMapping("/mybookings-active/{customerId}")
     public List<Booking> getMyBookingsPendingAPI(@PathVariable Integer customerId) {
         List<Booking> allBookings= bookingService.getMyBookings(customerId);
@@ -75,7 +75,7 @@ public class BookingController {
         return pendingBookings;
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @GetMapping("/mybookings-cancelled/{customerId}")
     public List<Booking> getMyBookingsCancelledAPI(@PathVariable Integer customerId) {
         List<Booking> allBookings= bookingService.getMyBookings(customerId);
@@ -90,7 +90,7 @@ public class BookingController {
         return cancelledBookings;
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/cancel/{booking_id}")
     public CancelBookingResponse cancelBooking(@PathVariable Integer booking_id) {
         Booking bookingCancelled=bookingService.cancelBooking(booking_id);

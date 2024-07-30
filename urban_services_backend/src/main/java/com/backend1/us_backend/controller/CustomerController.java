@@ -24,13 +24,13 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @GetMapping("/admin/customers")
     public List<CustomerDetails> getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @PostMapping(path = "/login", consumes = "application/json")
     public LoginResponse loginCustomer(@RequestBody CustomerDetails customerDTO) {
         System.out.println("Login DTO");
@@ -47,7 +47,7 @@ public class CustomerController {
         return loginResponse;
     }
     
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @PostMapping(path = "/signup", consumes = "application/json")
     public SignupResponse signupCustomer(@RequestBody CustomerDetails customerDTO) {
         System.out.println(customerDTO);

@@ -16,7 +16,7 @@ public class AgentController {
     @Autowired
     private AgentService agentService;
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @GetMapping("/admin/agents")
     public List<AgentDetails> getAllAgents() {
         return agentService.getAllAgents();
